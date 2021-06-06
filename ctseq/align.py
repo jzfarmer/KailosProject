@@ -13,6 +13,8 @@ from . import utilities
 # readsPerFile=1500000
 
 
+# cuts the adapters off the forward and reverse reads with cutadapt. the untrimmed files are removed.
+
 def cutAdapters(args,fExt,rExt,newForExt,newRevExt):
     print('\n**************')
     print('Trimming adapters with Cutadapt '+utilities.getDate())
@@ -53,7 +55,7 @@ def cutAdapters(args,fExt,rExt,newForExt,newRevExt):
     print('Done trimming adapters with Cutadapt '+utilities.getDate())
     print('**************\n')
 
-
+# concatenates files
 def catFiles(listOfFiles,finalFileName):
 
     catCmd=['cat']+listOfFiles

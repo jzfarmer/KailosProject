@@ -1,5 +1,6 @@
 # make sure a list of names is in the correct format
 # taking in a list of names. if the name starts with a number, it adds an X to the beginning.
+# adds an X to the beginning because R will add X's to names beginning with integers
 # returns back the modified names.
 formatNames=function(listOfNames){
   newListOfNames=c()
@@ -19,10 +20,11 @@ formatNames=function(listOfNames){
 
 
 # merge two data frames
+# cleans up the columns and removes duplicate row names
 mergeDF = function(df1,df2){ # df1 and df2 are dataframes
   finalDF = merge(df1,df2,by = "row.names",all = T) # merges by row names and not columns
-  rownames(finalDF) = finalDF$Row.names
-  finalDF$Row.names = NULL
+  rownames(finalDF) = finalDF$Row.names # clean up anything left behind by the merge, gets rid of columns
+  finalDF$Row.names = NULL # get rid of duplicate row names, remakes columns properly
   return(finalDF)
 }
 

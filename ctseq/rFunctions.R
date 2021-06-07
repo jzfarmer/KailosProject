@@ -256,3 +256,4 @@ plotData = function(runName,fragInfoFileName,sampleStats,totalMolFile,methMolFil
   
   
 }
+

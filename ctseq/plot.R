@@ -21,3 +21,4 @@ source(rHelperFxnsPath)
 outputFiles=loadFiles(fragInfoFileName,sampleStatsFileName,totalMolFileName,methMolFileName,methRatioFileName,sampleInfoFileName)
 
 plotData(runName,fragInfoFileName,outputFiles$sampleStats,outputFiles$totalMolFile,outputFiles$methMolFile,outputFiles$methRatioFile)
+

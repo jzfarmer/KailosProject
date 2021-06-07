@@ -3,7 +3,7 @@ import sys
 import os
 import glob
 import re
-from .__main__ import defaultDir
+from __main__ import defaultDir
 
 def getDate():
     return(str(datetime.now().strftime('%Y-%m-%d %H:%M:%S')))

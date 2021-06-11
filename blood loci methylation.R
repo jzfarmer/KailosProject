@@ -30,7 +30,7 @@ thirtyng <- thirtyng[,c(1:8)]
 onehundredng <- onehundredng[,c(1:8)]
 # rename the z string column since it was named strangely upon import
 colnames(thirtyng)[4] <- "ZString"
-colnames(onehundredng)[4] <- "Zstring"
+colnames(onehundredng)[4] <- "ZString"
 # in the dataframes, change the characters to numeric values
 # the graphing functions dont like non-numeric characters
 # this assigns a unique number to each value
@@ -41,7 +41,7 @@ thirtyng$ZString =as.numeric(as.factor(thirtyng$ZString))
 onehundredng$sample = as.numeric(as.factor(onehundredng$sample))
 onehundredng$locus = as.numeric(as.factor(onehundredng$locus))
 onehundredng$UMI = as.numeric(as.factor(onehundredng$UMI))
-onehundredng$Zstring = as.numeric(as.factor(onehundredng$Zstring))
+onehundredng$Zstring = as.numeric(as.factor(onehundredng$ZString))
 ?kmeans
 # elbow plot to determine the optimal number of clusters
 # it looks like it is 2 from the graph but not sure this

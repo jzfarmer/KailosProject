@@ -26,8 +26,8 @@ z_stringList3 = locus_3.values.tolist()
 count = 0
 # print(len(z_stringList3))
 for i in range(len(z_stringList3)):
-    print('[{}]{}'.format(i, z_stringList3[i]))
-    print('[{}]{}'.format(i, z_stringList3[i][0]))
+    # print('[{}]{}'.format(i, z_stringList3[i]))
+    # print('[{}]{}'.format(i, z_stringList3[i][0]))
     if z_stringList3[i][0][0] == 'Z':
         count += 1
     elif z_stringList3[i][0][0] == 'z':

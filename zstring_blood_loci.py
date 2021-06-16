@@ -23,7 +23,9 @@ z_stringList3 = locus_3.values.tolist()
 # print(z_stringList3)
 
 # is the first z methylated in locus 3? 
-
+count = 0
+for i in z_stringList3:
+   
 
 
 

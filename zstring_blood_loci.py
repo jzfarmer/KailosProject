@@ -81,6 +81,49 @@ for i in range(len(z_stringList4)):
         count_zzzzzz += 1
 print('ZZZZZZ locus 4:', count_ZZZZZZ, 'zzzzzz locus 4:', count_zzzzzz)
 
+# blood marker 7
+# there are 9 Zs in the z string
+# subset the data by locus 7 and add the z strings to a list
+locus_7 = df.loc[df['locus'] == 'blood-7-cg07218880-chr13_115046160_115046282', ['consensusZstring_0.9']]
+z_stringList7 = locus_7.values.tolist()
+
+# first 4 zs of marker 7
+count_ZZZZ = 0
+count_zzzz = 0
+count_Zzzz = 0
+count_zZzz = 0
+count_zzZz = 0
+count_zzzZ = 0
+count_ZZzz = 0
+count_zzZZ = 0
+count_ZZZz = 0
+count_zzzZ = 0
+
+for i in range(len(z_stringList7)):
+    if z_stringList7[i][0][:4] == 'ZZZZ':
+        count_ZZZZ += 1
+    elif z_stringList7[i][0][:4] == 'zzzz':
+        count_zzzz += 1
+    elif z_stringList7[i][0][:4] == 'Zzzz':
+        count_Zzzz += 1
+    elif z_stringList7[i][0][:4] == 'zZzz':
+        count_zZzz += 1
+    elif z_stringList7[i][0][:4] == 'zzZz':
+        count_zzZz += 1
+    elif z_stringList7[i][0][:4] == 'zzzZ':
+        count_zzzZ += 1
+    elif z_stringList7[i][0][:4] == 'ZZzz':
+        count_ZZzz += 1
+    elif z_stringList7[i][0][:4] == 'zzZZ':
+        count_zzZZ += 1
+    elif z_stringList7[i][0][:4] == 'ZZZz':
+        count_ZZZz += 1
+    elif z_stringList7[i][0][:4] == 'zzzZ':
+        count_zzzZ += 1
+print(count_ZZZZ, count_zzzz, count_Zzzz, count_zZzz, count_zzZz, count_zzzZ, count_ZZzz, count_zzZZ, count_ZZZz, count_zzzZ)
+
+
+
 
 
 

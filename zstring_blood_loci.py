@@ -58,7 +58,29 @@ for i in range(len(z_stringList4)):
         count_zZ += 1
     else:
         count_zz += 1
-print('ZZ locus 4:', count_ZZ, 'Zz locus 4:', count_Zz, 'zZ locus 4:', count_zZ, 'zz loucs 4', count_zz)
+print('ZZ locus 4:', count_ZZ, 'Zz locus 4:', count_Zz, 'zZ locus 4:', count_zZ, 'zz locus 4:', count_zz)
+
+# How many of the first Zs are methylated in locus 4?
+count_locus4 = 0
+for i in range(len(z_stringList4)):
+    # print('[{}]{}'.format(i, z_stringList3[i]))
+    # print('[{}]{}'.format(i, z_stringList3[i][0]))
+    if z_stringList4[i][0][0] == 'Z':
+        count_locus4 += 1
+    elif z_stringList4[i][0][0] == 'z':
+       count_locus4 == 1
+print("The number of first Z's for locus 4 that are methylated is:", count_locus4)
+
+# First 6 Zs of locus 4
+count_ZZZZZZ = 0
+count_zzzzzz = 0
+for i in range(len(z_stringList4)):
+    if z_stringList4[i][0][:6] == 'ZZZZZZ':
+        count_ZZZZZZ += 1
+    elif z_stringList4[i][0][:6] == 'zzzzzz':
+        count_zzzzzz += 1
+print('ZZZZZZ locus 4:', count_ZZZZZZ, 'zzzzzz locus 4:', count_zzzzzz)
+
 
 
 

@@ -231,7 +231,7 @@ print('Locus 7 Position 5 Zs:', count_locus7_5Z, 'Locus 7 Position 5 zs:', count
 print('Locus 7 Position 6 Zs:', count_locus7_6Z, 'Locus 7 Position 6 zs:', count_locus7_6z)
 print('Locus 7 Position 7 Zs:', count_locus7_7Z, 'Locus 7 Position 7 zs:', count_locus7_7z)
 print('Locus 7 Position 8 Zs:', count_locus7_8Z, 'Locus 7 Position 8 zs:', count_locus7_8z)
-print('Locus 7 Position 8 Zs:', count_locus7_9Z, 'Locus 7 Position 8 zs:', count_locus7_9z)
+print('Locus 7 Position 9 Zs:', count_locus7_9Z, 'Locus 7 Position 9 zs:', count_locus7_9z)
 
 
 

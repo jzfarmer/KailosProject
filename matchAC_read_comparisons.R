@@ -169,3 +169,45 @@ Pancancer_S4Graph <- ggplot(data = Pancancer_S4) +
   ggtitle(paste("Number of Molecules Pancancer
 Non-Meth-60ng-S1-S4")) +
   ylab("Amplicon count")
+
+# S5 Pancancer
+Pancancer_S5 <- S5[,c(2,8)]
+Pancancer_S5 <-Pancancer_S5 %>% filter(
+  locus %in% c("blood-1-cg07865091-chr1_43814286_43814441", "blood-2-cg08706567_cg13393721-chr1_43815020_43815167","blood-3-cg08535938-chr1_161128968_161129092","blood-4-cg16817180-chr4_981454_981558","blood-5-cg21448513-chr8_57103511_57103669","blood-6-cg09148852-chr12_122235067_122235172","blood-7-cg07218880-chr13_115046160_115046282","blood-8-cg12952132-chr19_55417539_55417665")
+)
+Pancancer_S5 <- Pancancer_S5[!(Pancancer_S5$numReads < 5),] # filter out reads <5
+Pancancer_S5Graph <- ggplot(data = Pancancer_S5) + 
+  geom_bar(mapping = aes(x = numReads)) +
+  ggtitle(paste("Number of Molecules Pancancer
+Non-Meth-40ng-S1-S5")) +
+  ylab("Amplicon count")
+
+# S6 Pancancer
+Pancancer_S6 <- S6[,c(2,8)]
+Pancancer_S6 <-Pancancer_S6 %>% filter(
+  locus %in% c("blood-1-cg07865091-chr1_43814286_43814441", "blood-2-cg08706567_cg13393721-chr1_43815020_43815167","blood-3-cg08535938-chr1_161128968_161129092","blood-4-cg16817180-chr4_981454_981558","blood-5-cg21448513-chr8_57103511_57103669","blood-6-cg09148852-chr12_122235067_122235172","blood-7-cg07218880-chr13_115046160_115046282","blood-8-cg12952132-chr19_55417539_55417665")
+)
+Pancancer_S6 <- Pancancer_S6[!(Pancancer_S6$numReads < 5),] # filter out reads <5
+Pancancer_S6Graph <- ggplot(data = Pancancer_S6) + 
+  geom_bar(mapping = aes(x = numReads)) +
+  ggtitle(paste("Number of Molecules Pancancer
+Non-Meth-20ng-S1-S6")) +
+  ylab("Amplicon count")
+
+# S7 Pancancer
+Pancancer_S7 <- S7[,c(2,8)]
+Pancancer_S7 <-Pancancer_S7 %>% filter(
+  locus %in% c("blood-1-cg07865091-chr1_43814286_43814441", "blood-2-cg08706567_cg13393721-chr1_43815020_43815167","blood-3-cg08535938-chr1_161128968_161129092","blood-4-cg16817180-chr4_981454_981558","blood-5-cg21448513-chr8_57103511_57103669","blood-6-cg09148852-chr12_122235067_122235172","blood-7-cg07218880-chr13_115046160_115046282","blood-8-cg12952132-chr19_55417539_55417665")
+)
+Pancancer_S7 <- Pancancer_S7[!(Pancancer_S7$numReads < 5),] # filter out reads <5
+Pancancer_S7Graph <- ggplot(data = Pancancer_S7) + 
+  geom_bar(mapping = aes(x = numReads)) +
+  ggtitle(paste("Number of Molecules Pancancer
+Non-Meth-10ng-S1-S7")) +
+  ylab("Amplicon count")
+
+ggarrange(Pancancer_S1Graph, Pancancer_S2Graph,
+          Pancancer_S3Graph, Pancancer_S4Graph,
+          Pancancer_S5Graph, Pancancer_S6Graph,
+          Pancancer_S7Graph,
+          ncol = 2, nrow = 4)

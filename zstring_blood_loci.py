@@ -120,28 +120,38 @@ def countZstring(filename):
     for i in range(len(z_stringList3)):
         if z_stringList3[i][0][1] == 'Z':
             count_locus3_2Z += 1
+            counts.addZ(3,1)
         else:
             count_locus3_2z += 1
+            counts.addz(3,1)
     for i in range(len(z_stringList3)):
         if z_stringList3[i][0][2] == 'Z':
             count_locus3_3Z += 1
+            counts.addZ(3,2)
         else:
             count_locus3_3z += 1
+            counts.addz(3,2)
     for i in range(len(z_stringList3)):
         if z_stringList3[i][0][3] == 'Z':
             count_locus3_4Z += 1
+            counts.addZ(3,3)
         else:
             count_locus3_4z += 1
+            counts.addz(3,3)
     for i in range(len(z_stringList3)):
         if z_stringList3[i][0][4] == 'Z':
             count_locus3_5Z += 1
+            counts.addZ(3,4)
         else:
             count_locus3_5z += 1
+            counts.addz(3,4)
     for i in range(len(z_stringList3)):
         if z_stringList3[i][0][5] == 'Z':
             count_locus3_6Z += 1
+            counts.addZ(3,5)
         else:
             count_locus3_6z += 1
+            counts.addz(3,5)
     print('Locus 3 Position 1 Zs:', count_locus3_1Z, 'Locus 3 Position 1 zs:', count_locus3_1z)
     print('Locus 3 Position 2 Zs:', count_locus3_2Z, 'Locus 3 Position 2 zs:', count_locus3_2z)
     print('Locus 3 Position 3 Zs:', count_locus3_3Z, 'Locus 3 Position 3 zs:', count_locus3_3z)
@@ -180,43 +190,59 @@ def countZstring(filename):
     for i in range(len(z_stringList4)):
         if z_stringList4[i][0][0] == 'Z':
             count_locus4_1Z += 1
+            counts.addZ(4,0)
         else:
             count_locus4_1z += 1
+            counts.addz(4,0)
     for i in range(len(z_stringList4)):
         if z_stringList4[i][0][1] == 'Z':
             count_locus4_2Z += 1
+            counts.addZ(4,1)
         else:
             count_locus4_2z += 1
+            counts.addz(4,1)
     for i in range(len(z_stringList4)):
         if z_stringList4[i][0][2] == 'Z':
             count_locus4_3Z += 1
+            counts.addZ(4,2)
         else:
             count_locus4_3z += 1
+            counts.addz(4,2)
     for i in range(len(z_stringList4)):
         if z_stringList4[i][0][3] == 'Z':
             count_locus4_4Z += 1
+            counts.addZ(4,3)
         else:
             count_locus4_4z += 1
+            counts.addz(4,3)
     for i in range(len(z_stringList4)):
         if z_stringList4[i][0][4] == 'Z':
             count_locus4_5Z += 1
+            counts.addZ(4,4)
         else:
             count_locus4_5z += 1
+            counts.addz(4,4)
     for i in range(len(z_stringList4)):
         if z_stringList4[i][0][5] == 'Z':
             count_locus4_6Z += 1
+            counts.addZ(4,5)
         else:
             count_locus4_6z += 1
+            counts.addz(4,5)
     for i in range(len(z_stringList4)):
         if z_stringList4[i][0][6] == 'Z':
             count_locus4_7Z += 1
+            counts.addZ(4,6)
         else:
             count_locus4_7z += 1
+            counts.addz(4,6)
     for i in range(len(z_stringList4)):
         if z_stringList4[i][0][7] == 'Z':
             count_locus4_8Z += 1
+            counts.addZ(4,7)
         else:
             count_locus4_8z += 1
+            counts.addz(4,7)
     print('Locus 4 Position 1 Zs:', count_locus4_1Z, 'Locus 4 Position 1 zs:', count_locus4_1z)
     print('Locus 4 Position 2 Zs:', count_locus4_2Z, 'Locus 4 Position 2 zs:', count_locus4_2z)
     print('Locus 4 Position 3 Zs:', count_locus4_3Z, 'Locus 4 Position 3 zs:', count_locus4_3z)
@@ -254,48 +280,66 @@ def countZstring(filename):
     for i in range(len(z_stringList7)):
         if z_stringList7[i][0][0] == 'Z':
             count_locus7_1Z += 1
+            counts.addZ(7,0)
         else:
             count_locus7_1z += 1
+            counts.addz(7,0)
     for i in range(len(z_stringList7)):
         if z_stringList7[i][0][1] == 'Z':
             count_locus7_2Z += 1
+            counts.addZ(7,1)
         else:
             count_locus7_2z += 1
+            counts.addz(7,1)
     for i in range(len(z_stringList7)):
         if z_stringList7[i][0][2] == 'Z':
             count_locus7_3Z += 1
+            counts.addZ(7,2)
         else:
             count_locus7_3z += 1
+            counts.addz(7,2)
     for i in range(len(z_stringList7)):
         if z_stringList7[i][0][3] == 'Z':
             count_locus7_4Z += 1
+            counts.addZ(7,3)
         else:
             count_locus7_4z += 1
+            counts.addz(7,3)
     for i in range(len(z_stringList7)):
         if z_stringList7[i][0][4] == 'Z':
             count_locus7_5Z += 1
+            counts.addZ(7,4)
         else:
             count_locus7_5z += 1
+            counts.addz(7,4)
     for i in range(len(z_stringList7)):
         if z_stringList7[i][0][5] == 'Z':
             count_locus7_6Z += 1
+            counts.addZ(7,5)
         else:
             count_locus7_6z += 1
+            counts.addz(7,5)
     for i in range(len(z_stringList7)):
         if z_stringList7[i][0][6] == 'Z':
             count_locus7_7Z += 1
+            counts.addZ(7,6)
         else:
             count_locus7_7z += 1
+            counts.addz(7,6)
     for i in range(len(z_stringList7)):
         if z_stringList7[i][0][7] == 'Z':
             count_locus7_8Z += 1
+            counts.addZ(7,7)
         else:
             count_locus7_8z += 1
+            counts.addz(7,7)
     for i in range(len(z_stringList7)):
         if z_stringList7[i][0][8] == 'Z':
             count_locus7_9Z += 1
+            counts.addZ(7,8)
         else:
             count_locus7_9z += 1
+            counts.addz(7,8)
     print('Locus 7 Position 1 Zs:', count_locus7_1Z, 'Locus 7 Position 1 zs:', count_locus7_1z)
     print('Locus 7 Position 2 Zs:', count_locus7_2Z, 'Locus 7 Position 2 zs:', count_locus7_2z)
     print('Locus 7 Position 3 Zs:', count_locus7_3Z, 'Locus 7 Position 3 zs:', count_locus7_3z)
@@ -339,58 +383,80 @@ def countZstring(filename):
     for i in range(len(z_stringList2)):
         if z_stringList2[i][0][0] == 'Z':
             count_locus2_1Z += 1
+            counts.addZ(2,0)
         else:
             count_locus2_1z += 1
+            counts.addz(2,0)
     for i in range(len(z_stringList2)):
         if z_stringList2[i][0][1] == 'Z':
             count_locus2_2Z += 1
+            counts.addZ(2,1)
         else:
             count_locus2_2z += 1
+            counts.addz(2,1)
     for i in range(len(z_stringList2)):
         if z_stringList2[i][0][2] == 'Z':
             count_locus2_3Z += 1
+            counts.addZ(2,2)
         else:
             count_locus2_3z += 1
+            counts.addz(2,2)
     for i in range(len(z_stringList2)):
         if z_stringList2[i][0][3] == 'Z':
             count_locus2_4Z += 1
+            counts.addZ(2,3)
         else:
             count_locus2_4z += 1
+            counts.addz(2,3)
     for i in range(len(z_stringList2)):
         if z_stringList2[i][0][4] == 'Z':
             count_locus2_5Z += 1
+            counts.addZ(2,4)
         else:
             count_locus2_5z += 1
+            counts.addz(2,4)
     for i in range(len(z_stringList2)):
         if z_stringList2[i][0][5] == 'Z':
             count_locus2_6Z += 1
+            counts.addZ(2,5)
         else:
             count_locus2_6z += 1
+            counts.addz(2,5)
     for i in range(len(z_stringList2)):
         if z_stringList2[i][0][6] == 'Z':
             count_locus2_7Z += 1
+            counts.addZ(2,6)
         else:
             count_locus2_7z += 1
+            counts.addz(2,6)
     for i in range(len(z_stringList2)):
         if z_stringList2[i][0][7] == 'Z':
             count_locus2_8Z += 1
+            counts.addZ(2,7)
         else:
             count_locus2_8z += 1
+            counts.addz(2,7)
     for i in range(len(z_stringList2)):
         if z_stringList2[i][0][8] == 'Z':
             count_locus2_9Z += 1
+            counts.addZ(2,8)
         else:
             count_locus2_9z += 1
+            counts.addz(2,8)
     for i in range(len(z_stringList2)):
         if z_stringList2[i][0][9] == 'Z':
             count_locus2_10Z += 1
+            counts.addZ(2,9)
         else:
             count_locus2_10z += 1
+            counts.addz(2,9)
     for i in range(len(z_stringList2)):
         if z_stringList2[i][0][10] == 'Z':
             count_locus2_11Z += 1
+            counts.addZ(2,10)
         else:
             count_locus2_11z += 1
+            counts.addz(2,10)
 
     print('Locus 2 Position 1 Zs:', count_locus2_1Z, 'Locus 2 Position 1 zs:', count_locus2_1z)
     print('Locus 2 Position 2 Zs:', count_locus2_2Z, 'Locus 2 Position 2 zs:', count_locus2_2z)

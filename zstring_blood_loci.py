@@ -177,10 +177,10 @@ def alt_countZstring(filename):
         for ii in range(11):
             if z_stringList2[i][0][ii] == 'Z':
                 count_locus2_1Z += 1
-                counts.addZ(2,0)s
+                counts.addZ(2,ii)
             else:
-                count_locus2_1z += 1s
-                counts.addz(2,0)
+                count_locus2_1z += 1
+                counts.addz(2,ii)
 
     logging.debug('Locus 2 Position 1 Zs:', count_locus2_1Z, 'Locus 2 Position 1 zs:', count_locus2_1z)
     logging.debug('Locus 2 Position 2 Zs:', count_locus2_2Z, 'Locus 2 Position 2 zs:', count_locus2_2z)

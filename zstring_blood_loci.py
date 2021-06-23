@@ -1,6 +1,6 @@
 import pandas as pd
 import os
-from dataclasses import dataclass, asdict
+from dataclasses import dataclass
 # read in the sample with the just the blood loci
 # get rid of \t and \n separators
 
@@ -11,10 +11,10 @@ class locus_counts:
     locus_7: [9]
     locus_2: [11]
     def __init__(self):
-        self.locus_3 = [[0,0]] * 6
-        self.locus_4 = [[0,0]] * 8
-        self.locus_7 = [[0,0]] * 9
-        self.locus_2 = [[0,0]] * 11
+        self.locus_3 = [[[0,0]] for i in range(6)]
+        self.locus_4 = [[[0,0]] for i in range(8)]
+        self.locus_7 = [[[0,0]] for i in range(9)]
+        self.locus_2 = [[[0,0]] for i in range(11)]
     
     def __add__(self, other):
         new_count = locus_counts()
@@ -477,11 +477,15 @@ def countZstring(filename):
     print('Total Zs for locus 4', len(z_stringList4))
     print('Total Zs for locus 7', len(z_stringList7))
     return counts
+
+# looks in the current directory for .txt files (allmolecules files)
+# appends the all molecules files to a list
 ext = []
 for file in os.listdir(os.getcwd()):
     filesplit = os.path.splitext(file)
     if filesplit[1] == '.txt':
         ext.append(file)
+# counts all the Zs and zs at each position for each locus, added together for each file. 
 total_counts = locus_counts()
 for e in ext:
     total_counts = total_counts+countZstring(e)

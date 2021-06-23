@@ -498,6 +498,6 @@ for e in ext:
     start = time.time()
     total_counts = total_counts+countZstring(e)
     processing_time = time.time() - start
-    logging.info(f"took {} seconds to process file {e}")
+    logging.info(f"took {processing_time} seconds to process file {e}")
 
 print(f"{total_counts.locus_2}\t{total_counts.locus_3}\t{total_counts.locus_4}\t{total_counts.locus_7}\t")

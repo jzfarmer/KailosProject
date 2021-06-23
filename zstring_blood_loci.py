@@ -1,6 +1,7 @@
 import pandas as pd
 import os
 from dataclasses import dataclass
+import logging
 # read in the sample with the just the blood loci
 # get rid of \t and \n separators
 
@@ -47,7 +48,7 @@ class locus_counts:
         elif locus == 2:
             self.locus_2[position][0] += 1
         else:
-            print('invalid locus')
+            logging.warning('invalid locus')
     def addz(self, locus, position):
         if locus == 3:
             self.locus_3[position][1] += 1
@@ -58,7 +59,7 @@ class locus_counts:
         elif locus == 2:
             self.locus_2[position][1] += 1
         else:
-            print('invalid locus')
+            logging.warning('invalid locus')
     # returns the count of Zs and zs at a specified locus and position
     def atPosition(self, locus, position):
         if locus == 3:
@@ -70,29 +71,29 @@ class locus_counts:
         elif locus == 2:
             self.locus_2[position]
         else:
-            print('invalid locus')
+            logging.warning('invalid locus')
         
 
 def countZstring(filename):
 
     df = pd.read_csv(filename, sep='\t', lineterminator='\r') 
-    # print(f"{filename} : file read!")
+    # logging.debug(f"{filename} : file read!")
     df = df.replace('\t',' ', regex=True)
     df = df.replace('\n',' ', regex=True)
-    # print(df)
+    # logging.debug(df)
 
     # check the data frame to make sure everything read in correctly
     #for (columnName, columnData) in df.iteritems():
-    # print('Colunm Name : ', columnName)
-    # print('Column Contents : ', columnData.values)
+    # logging.debug('Colunm Name : ', columnName)
+    # logging.debug('Column Contents : ', columnData.values)
 
     # locus 3
     # subset the dataframe by locus 3 and the z string
     locus_3 = df.loc[df['locus'] == 'blood-3-cg08535938-chr1_161128968_161129092', ['consensusZstring_0.9']]
-    # print(locus_3)
+    # logging.debug(locus_3)
     # put the z strings for locus 3 in a list to iterate through
     z_stringList3 = locus_3.values.tolist()
-    # print(z_stringList3)
+    # logging.debug(z_stringList3)
 
     # counting the number of 'Zs' at each position
     # total number of Zs in locus 3 is 6
@@ -109,10 +110,10 @@ def countZstring(filename):
     count_locus3_5z = 0
     count_locus3_6Z = 0
     count_locus3_6z = 0
-    # print(len(z_stringList3))
+    # logging.debug(len(z_stringList3))
     for i in range(len(z_stringList3)):
-        # print('[{}]{}'.format(i, z_stringList3[i]))
-        # print('[{}]{}'.format(i, z_stringList3[i][0]))
+        # logging.debug('[{}]{}'.format(i, z_stringList3[i]))
+        # logging.debug('[{}]{}'.format(i, z_stringList3[i][0]))
         if z_stringList3[i][0][0] == 'Z':
             count_locus3_1Z += 1
             counts.addZ(3,0)
@@ -154,12 +155,12 @@ def countZstring(filename):
         else:
             count_locus3_6z += 1
             counts.addz(3,5)
-    print('Locus 3 Position 1 Zs:', count_locus3_1Z, 'Locus 3 Position 1 zs:', count_locus3_1z)
-    print('Locus 3 Position 2 Zs:', count_locus3_2Z, 'Locus 3 Position 2 zs:', count_locus3_2z)
-    print('Locus 3 Position 3 Zs:', count_locus3_3Z, 'Locus 3 Position 3 zs:', count_locus3_3z)
-    print('Locus 3 Position 4 Zs:', count_locus3_4Z, 'Locus 3 Position 4 zs:', count_locus3_4z)
-    print('Locus 3 Position 5 Zs:', count_locus3_5Z, 'Locus 3 Position 5 zs:', count_locus3_5z)
-    print('Locus 3 Position 6 Zs:', count_locus3_6Z, 'Locus 3 Position 6 zs:', count_locus3_6z)
+    logging.debug('Locus 3 Position 1 Zs:', count_locus3_1Z, 'Locus 3 Position 1 zs:', count_locus3_1z)
+    logging.debug('Locus 3 Position 2 Zs:', count_locus3_2Z, 'Locus 3 Position 2 zs:', count_locus3_2z)
+    logging.debug('Locus 3 Position 3 Zs:', count_locus3_3Z, 'Locus 3 Position 3 zs:', count_locus3_3z)
+    logging.debug('Locus 3 Position 4 Zs:', count_locus3_4Z, 'Locus 3 Position 4 zs:', count_locus3_4z)
+    logging.debug('Locus 3 Position 5 Zs:', count_locus3_5Z, 'Locus 3 Position 5 zs:', count_locus3_5z)
+    logging.debug('Locus 3 Position 6 Zs:', count_locus3_6Z, 'Locus 3 Position 6 zs:', count_locus3_6z)
 
     # blood marker 4
     # subset the dataframe by locus 4 and the z string
@@ -167,9 +168,9 @@ def countZstring(filename):
     # put the z strings in a list to iterate through
     z_stringList4 = locus_4.values.tolist()
     # check to make sure every amplicon is present 
-    # print(len(z_stringList4))
+    # logging.debug(len(z_stringList4))
 
-    print('')
+    logging.debug('')
     # counting number of Zs in each position in locus 4
     # 8 total Zs in locus 4 z string
     count_locus4_1Z = 0
@@ -245,16 +246,16 @@ def countZstring(filename):
         else:
             count_locus4_8z += 1
             counts.addz(4,7)
-    print('Locus 4 Position 1 Zs:', count_locus4_1Z, 'Locus 4 Position 1 zs:', count_locus4_1z)
-    print('Locus 4 Position 2 Zs:', count_locus4_2Z, 'Locus 4 Position 2 zs:', count_locus4_2z)
-    print('Locus 4 Position 3 Zs:', count_locus4_3Z, 'Locus 4 Position 3 zs:', count_locus4_3z)
-    print('Locus 4 Position 4 Zs:', count_locus4_4Z, 'Locus 4 Position 4 zs:', count_locus4_4z)
-    print('Locus 4 Position 5 Zs:', count_locus4_5Z, 'Locus 4 Position 5 zs:', count_locus4_5z)
-    print('Locus 4 Position 6 Zs:', count_locus4_6Z, 'Locus 4 Position 6 zs:', count_locus4_6z)
-    print('Locus 4 Position 7 Zs:', count_locus4_7Z, 'Locus 4 Position 7 zs:', count_locus4_7z)
-    print('Locus 4 Position 8 Zs:', count_locus4_8Z, 'Locus 4 Position 8 zs:', count_locus4_8z)
+    logging.debug('Locus 4 Position 1 Zs:', count_locus4_1Z, 'Locus 4 Position 1 zs:', count_locus4_1z)
+    logging.debug('Locus 4 Position 2 Zs:', count_locus4_2Z, 'Locus 4 Position 2 zs:', count_locus4_2z)
+    logging.debug('Locus 4 Position 3 Zs:', count_locus4_3Z, 'Locus 4 Position 3 zs:', count_locus4_3z)
+    logging.debug('Locus 4 Position 4 Zs:', count_locus4_4Z, 'Locus 4 Position 4 zs:', count_locus4_4z)
+    logging.debug('Locus 4 Position 5 Zs:', count_locus4_5Z, 'Locus 4 Position 5 zs:', count_locus4_5z)
+    logging.debug('Locus 4 Position 6 Zs:', count_locus4_6Z, 'Locus 4 Position 6 zs:', count_locus4_6z)
+    logging.debug('Locus 4 Position 7 Zs:', count_locus4_7Z, 'Locus 4 Position 7 zs:', count_locus4_7z)
+    logging.debug('Locus 4 Position 8 Zs:', count_locus4_8Z, 'Locus 4 Position 8 zs:', count_locus4_8z)
 
-    print('')
+    logging.debug('')
     # blood marker 7
     # there are 9 Zs in the z string
     # subset the data by locus 7 and add the z strings to a list
@@ -342,17 +343,17 @@ def countZstring(filename):
         else:
             count_locus7_9z += 1
             counts.addz(7,8)
-    print('Locus 7 Position 1 Zs:', count_locus7_1Z, 'Locus 7 Position 1 zs:', count_locus7_1z)
-    print('Locus 7 Position 2 Zs:', count_locus7_2Z, 'Locus 7 Position 2 zs:', count_locus7_2z)
-    print('Locus 7 Position 3 Zs:', count_locus7_3Z, 'Locus 7 Position 3 zs:', count_locus7_3z)
-    print('Locus 7 Position 4 Zs:', count_locus7_4Z, 'Locus 7 Position 4 zs:', count_locus7_4z)
-    print('Locus 7 Position 5 Zs:', count_locus7_5Z, 'Locus 7 Position 5 zs:', count_locus7_5z)
-    print('Locus 7 Position 6 Zs:', count_locus7_6Z, 'Locus 7 Position 6 zs:', count_locus7_6z)
-    print('Locus 7 Position 7 Zs:', count_locus7_7Z, 'Locus 7 Position 7 zs:', count_locus7_7z)
-    print('Locus 7 Position 8 Zs:', count_locus7_8Z, 'Locus 7 Position 8 zs:', count_locus7_8z)
-    print('Locus 7 Position 9 Zs:', count_locus7_9Z, 'Locus 7 Position 9 zs:', count_locus7_9z)
+    logging.debug('Locus 7 Position 1 Zs:', count_locus7_1Z, 'Locus 7 Position 1 zs:', count_locus7_1z)
+    logging.debug('Locus 7 Position 2 Zs:', count_locus7_2Z, 'Locus 7 Position 2 zs:', count_locus7_2z)
+    logging.debug('Locus 7 Position 3 Zs:', count_locus7_3Z, 'Locus 7 Position 3 zs:', count_locus7_3z)
+    logging.debug('Locus 7 Position 4 Zs:', count_locus7_4Z, 'Locus 7 Position 4 zs:', count_locus7_4z)
+    logging.debug('Locus 7 Position 5 Zs:', count_locus7_5Z, 'Locus 7 Position 5 zs:', count_locus7_5z)
+    logging.debug('Locus 7 Position 6 Zs:', count_locus7_6Z, 'Locus 7 Position 6 zs:', count_locus7_6z)
+    logging.debug('Locus 7 Position 7 Zs:', count_locus7_7Z, 'Locus 7 Position 7 zs:', count_locus7_7z)
+    logging.debug('Locus 7 Position 8 Zs:', count_locus7_8Z, 'Locus 7 Position 8 zs:', count_locus7_8z)
+    logging.debug('Locus 7 Position 9 Zs:', count_locus7_9Z, 'Locus 7 Position 9 zs:', count_locus7_9z)
 
-    print('')
+    logging.debug('')
 
     # blood 2
     # total zs is 11
@@ -460,35 +461,40 @@ def countZstring(filename):
             count_locus2_11z += 1
             counts.addz(2,10)
 
-    print('Locus 2 Position 1 Zs:', count_locus2_1Z, 'Locus 2 Position 1 zs:', count_locus2_1z)
-    print('Locus 2 Position 2 Zs:', count_locus2_2Z, 'Locus 2 Position 2 zs:', count_locus2_2z)
-    print('Locus 2 Position 3 Zs:', count_locus2_3Z, 'Locus 2 Position 3 zs:', count_locus2_3z)
-    print('Locus 2 Position 4 Zs:', count_locus2_4Z, 'Locus 2 Position 4 zs:', count_locus2_4z)
-    print('Locus 2 Position 5 Zs:', count_locus2_5Z, 'Locus 2 Position 5 zs:', count_locus2_5z)
-    print('Locus 2 Position 6 Zs:', count_locus2_6Z, 'Locus 2 Position 6 zs:', count_locus2_6z)
-    print('Locus 2 Position 7 Zs:', count_locus2_7Z, 'Locus 2 Position 7 zs:', count_locus2_7z)
-    print('Locus 2 Position 8 Zs:', count_locus2_8Z, 'Locus 2 Position 8 zs:', count_locus2_8z)
-    print('Locus 2 Position 9 Zs:', count_locus2_9Z, 'Locus 2 Position 9 zs:', count_locus2_9z)
-    print('Locus 2 Position 10 Zs:', count_locus2_10Z, 'Locus 2 Position 10 zs:', count_locus2_10z)
-    print('Locus 2 Position 11 Zs:', count_locus2_11Z, 'Locus 2 Position 11 zs:', count_locus2_11z)
+    logging.debug('Locus 2 Position 1 Zs:', count_locus2_1Z, 'Locus 2 Position 1 zs:', count_locus2_1z)
+    logging.debug('Locus 2 Position 2 Zs:', count_locus2_2Z, 'Locus 2 Position 2 zs:', count_locus2_2z)
+    logging.debug('Locus 2 Position 3 Zs:', count_locus2_3Z, 'Locus 2 Position 3 zs:', count_locus2_3z)
+    logging.debug('Locus 2 Position 4 Zs:', count_locus2_4Z, 'Locus 2 Position 4 zs:', count_locus2_4z)
+    logging.debug('Locus 2 Position 5 Zs:', count_locus2_5Z, 'Locus 2 Position 5 zs:', count_locus2_5z)
+    logging.debug('Locus 2 Position 6 Zs:', count_locus2_6Z, 'Locus 2 Position 6 zs:', count_locus2_6z)
+    logging.debug('Locus 2 Position 7 Zs:', count_locus2_7Z, 'Locus 2 Position 7 zs:', count_locus2_7z)
+    logging.debug('Locus 2 Position 8 Zs:', count_locus2_8Z, 'Locus 2 Position 8 zs:', count_locus2_8z)
+    logging.debug('Locus 2 Position 9 Zs:', count_locus2_9Z, 'Locus 2 Position 9 zs:', count_locus2_9z)
+    logging.debug('Locus 2 Position 10 Zs:', count_locus2_10Z, 'Locus 2 Position 10 zs:', count_locus2_10z)
+    logging.debug('Locus 2 Position 11 Zs:', count_locus2_11Z, 'Locus 2 Position 11 zs:', count_locus2_11z)
 
-    print('')
+    logging.debug('')
 
-    print('Total Zs for locus 2', len(z_stringList2))
-    print('Total Zs for locus 3', len(z_stringList3))
-    print('Total Zs for locus 4', len(z_stringList4))
-    print('Total Zs for locus 7', len(z_stringList7))
+    logging.debug('Total Zs for locus 2', len(z_stringList2))
+    logging.debug('Total Zs for locus 3', len(z_stringList3))
+    logging.debug('Total Zs for locus 4', len(z_stringList4))
+    logging.debug('Total Zs for locus 7', len(z_stringList7))
     return counts
 
 # looks in the current directory for .txt files (allmolecules files)
 # appends the all molecules files to a list
+logging.basicConfig(filename='things.log', encoding='utf-8', level=logging.INFO)
 ext = []
 for file in os.listdir(os.getcwd()):
     filesplit = os.path.splitext(file)
     if filesplit[1] == '.txt':
         ext.append(file)
+logging.info(f"found {len(ext)} files")
 # counts all the Zs and zs at each position for each locus, added together for each file. 
 total_counts = locus_counts()
 for e in ext:
+    logging.info(f"trying to process file: {e}")
     total_counts = total_counts+countZstring(e)
+    logging.info(f"finished file: {e}")
+
 print(f"{total_counts.locus_2}\t{total_counts.locus_3}\t{total_counts.locus_4}\t{total_counts.locus_7}\t")

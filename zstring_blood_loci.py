@@ -483,7 +483,7 @@ def countZstring(filename):
 
 # looks in the current directory for .txt files (allmolecules files)
 # appends the all molecules files to a list
-logging.basicConfig(filename='things.log', encoding='utf-8', level=logging.INFO)
+logging.basicConfig(filename='things.log', level=logging.INFO)
 ext = []
 for file in os.listdir(os.getcwd()):
     filesplit = os.path.splitext(file)

@@ -2,6 +2,7 @@ import pandas as pd
 import os
 from dataclasses import dataclass
 import logging
+import time
 # read in the sample with the just the blood loci
 # get rid of \t and \n separators
 
@@ -483,7 +484,7 @@ def countZstring(filename):
 
 # looks in the current directory for .txt files (allmolecules files)
 # appends the all molecules files to a list
-logging.basicConfig(filename='things.log', level=logging.INFO)
+logging.basicConfig(level=logging.INFO)
 ext = []
 for file in os.listdir(os.getcwd()):
     filesplit = os.path.splitext(file)
@@ -494,7 +495,9 @@ logging.info(f"found {len(ext)} files")
 total_counts = locus_counts()
 for e in ext:
     logging.info(f"trying to process file: {e}")
+    start = time.time()
     total_counts = total_counts+countZstring(e)
-    logging.info(f"finished file: {e}")
+    processing_time = time.time() - start
+    logging.info(f"took {} seconds to process file {e}")
 
 print(f"{total_counts.locus_2}\t{total_counts.locus_3}\t{total_counts.locus_4}\t{total_counts.locus_7}\t")

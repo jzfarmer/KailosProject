@@ -4,6 +4,8 @@ from dataclasses import dataclass
 # read in the sample with the just the blood loci
 # get rid of \t and \n separators
 
+# sets the number of z positions for each locus, ie there's 6 Zs in the z string for locus 3
+# creates empty lists for each position for each Z
 @dataclass
 class locus_counts:
     locus_3: [6]
@@ -11,10 +13,10 @@ class locus_counts:
     locus_7: [9]
     locus_2: [11]
     def __init__(self):
-        self.locus_3 = [[[0,0]] for i in range(6)]
-        self.locus_4 = [[[0,0]] for i in range(8)]
-        self.locus_7 = [[[0,0]] for i in range(9)]
-        self.locus_2 = [[[0,0]] for i in range(11)]
+        self.locus_3 = [[0,0] for i in range(6)]
+        self.locus_4 = [[0,0] for i in range(8)]
+        self.locus_7 = [[0,0] for i in range(9)]
+        self.locus_2 = [[0,0] for i in range(11)]
     
     def __add__(self, other):
         new_count = locus_counts()
@@ -490,14 +492,3 @@ total_counts = locus_counts()
 for e in ext:
     total_counts = total_counts+countZstring(e)
 print(f"{total_counts.locus_2}\t{total_counts.locus_3}\t{total_counts.locus_4}\t{total_counts.locus_7}\t")
-    
-
-
-
-
-
-
-
-
-
-

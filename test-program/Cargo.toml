@@ -8,3 +8,4 @@ edition = "2018"
 [dependencies]
 csv = "1.1.6"
 thiserror = "1.0.25"
+serde = { version = "1", features = ["derive"]}

@@ -2,8 +2,10 @@ use std::{
     fs,
     path::Path,
     sync::mpsc::{channel, Receiver, Sender},
+    io::{Read, Write},
 };
 use thiserror::Error;
+use serde::Deserialize;
 
 #[derive(Debug, Error)]
 enum AddZError {
@@ -123,12 +125,36 @@ impl std::ops::AddAssign for Counter {
 enum ThingError {
     #[error(transparent)]
     IoError(#[from] std::io::Error),
+    #[error(transparent)]
+    CsvError(#[from] csv::Error)
 }
 
-fn do_thing(file_name: &Path) -> Result<(), ThingError> {
-    let mut reader = csv::Reader::from_reader(fs::read(file_name)?[..]);
-    for record in reader.records() {
-        let record = record?;
+#[derive(Debug, Deserialize)]
+struct Record {
+    sample: String,
+    locus: String,
+    UMI: String,
+    #[serde(rename(deserialize = "consensusZstring_0.9"))]
+    consensusZstring: String,
+    methCGs: u8,
+    totalCGs: u8,
+    methRatio: f64,
+    numReads: u32,
+    GCcontent: f64,
+}
+
+fn do_thing(file: &Path) -> Result<(), ThingError> {
+    let meta = fs::metadata(file)?;
+    let file_size = meta.len();
+    let csv_file = std::fs::OpenOptions::new().read(true).open(file)?;
+    let buf = std::io::BufReader::new(csv_file);
+    let mut reader = csv::Reader::from_reader(buf);
+    for rd in reader.deserialize() {
+        let record : Record = rd?;
+        for i in 0..record.consensusZstring.len() {
+            // check which locus it is
+                // count the z's
+        }
     }
     Ok(())
 }

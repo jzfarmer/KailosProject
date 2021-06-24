@@ -99,14 +99,14 @@ def alt_countZstring(filename):
     # total number of Zs in locus 3 is 6
     counts = locus_counts()
     # logging.debug(len(z_stringList3))
-    for i in range(len(z_stringList3)):
-        for ii in range(6):
-            if z_stringList3[i][0][ii] == 'Z':
+    for thing in z_stringList3:
+        for i in range(6):
+            if thing[0][i] == 'Z':
                 count_locus3_1Z += 1
-                counts.addZ(3,ii)
+                counts.addZ(3,i)
             else:
                 count_locus3_1z += 1
-                counts.addz(3,ii)
+                counts.addz(3,i)
     logging.debug('Locus 3 Position 1 Zs:', count_locus3_1Z, 'Locus 3 Position 1 zs:', count_locus3_1z)
     logging.debug('Locus 3 Position 2 Zs:', count_locus3_2Z, 'Locus 3 Position 2 zs:', count_locus3_2z)
     logging.debug('Locus 3 Position 3 Zs:', count_locus3_3Z, 'Locus 3 Position 3 zs:', count_locus3_3z)
@@ -124,9 +124,9 @@ def alt_countZstring(filename):
 
     logging.debug('')
 
-    for i in range(len(z_stringList4)):
+    for thing in z_stringList4:
         for ii in range(8):
-            if z_stringList4[i][0][ii] == 'Z':
+            if thing[0][ii] == 'Z':
                 count_locus4_1Z += 1
                 counts.addZ(4,ii)
             else:
@@ -148,9 +148,9 @@ def alt_countZstring(filename):
     locus_7 = df.loc[df['locus'] == 'blood-7-cg07218880-chr13_115046160_115046282', ['consensusZstring_0.9']]
     z_stringList7 = locus_7.values.tolist()
     # count the Zs and zs at each position 
-    for i in range(len(z_stringList7)):
+    for thing in z_stringList7:
         for ii in range(9):
-            if z_stringList7[i][0][ii] == 'Z':
+            if thing[0][ii] == 'Z':
                 count_locus7_1Z += 1
                 counts.addZ(7,ii)
             else:
@@ -173,9 +173,9 @@ def alt_countZstring(filename):
     locus_2 = df.loc[df['locus'] == 'blood-2-cg08706567_cg13393721-chr1_43815020_43815167', ['consensusZstring_0.9']]
     z_stringList2 = locus_2.values.tolist()
 
-    for i in range(len(z_stringList2)):
+    for thing in z_stringList2:
         for ii in range(11):
-            if z_stringList2[i][0][ii] == 'Z':
+            if thing[0][ii] == 'Z':
                 count_locus2_1Z += 1
                 counts.addZ(2,ii)
             else:

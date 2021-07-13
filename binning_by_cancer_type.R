@@ -1,7 +1,5 @@
 # binning & cancer type
 library(dplyr)
-library(reshape)
-library(binr)
 library(ggplot2)
 # read in the frag info file for each loci and its respective associated cancer type.
 fragInfo <- read.table("methPanel_v3_fraginfo.txt", 
@@ -14,6 +12,7 @@ HD806_100ng_25X_S1_S2 <- read.table("MatchAP/all_molecules/HD806-100ng-25X-S1-S2
                        row.names = NULL, 
                        sep = '\t')
 
+sampleName = "HD806_100ng_25X_S1_S2"
 
 HD806_100ng_25X_S1_S2 <- HD806_100ng_25X_S1_S2[!HD806_100ng_25X_S1_S2$numReads < 5,] # filters out any reads less than 5
 HD806_100ng_25X_S1_S2 <- HD806_100ng_25X_S1_S2[!(HD806_100ng_25X_S1_S2$methRatio < 0.70),] # filters out any amplicons that had a methRatio < 0.70. 
@@ -152,7 +151,9 @@ ggplot(data = all_Counts, aes(x = Cancer_type, y = Count, fill = Cancer_type)) +
   theme_minimal() +
   theme(axis.ticks.x = element_blank(), axis.text.x = element_blank()) +
   scale_fill_brewer(palette = "Paired") +
-  ggtitle(paste (c("Counts of Cancer Types ", " Loci in Meth Panel v3"), sep=" ", 
-                 collapse = toString(length_fragInfo)) )
+  ggtitle(paste("Counts of Cancer Loci in", sampleName))
+  
+  #ggtitle(paste (c("Counts of Cancer Types ", " Loci in Meth Panel v3 "), sep=" ", 
+               #  collapse = toString(length_fragInfo)) )
 
   
